@@ -51,14 +51,16 @@ Testing pretrained BERT models with different output classes without fine-tuning
 
 | Models                 | Accuracy | Precision | Recall  | F1 Score |
 |------------------------|----------|-----------|---------|----------|
-| 5 classes              | 0.566092 | 0.653298  | 0.566092| 0.592059 |
-| 3 classes              | 0.793413 | 0.771015  | 0.793413| 0.776169 |
-| 2 classes              | 0.837224 | 0.849638  | 0.837224| 0.841782 |
+| 5 classes (1st model)  | 0.566092 | 0.653298  | 0.566092| 0.592059 |
+| 3 classes (2nd model)  | 0.793413 | 0.771015  | 0.793413| 0.776169 |
+| 2 classes (3rd model)  | 0.837224 | 0.849638  | 0.837224| 0.841782 |
 * From the table, binary classification achieved the best results with a **83%** accuracy
 * The 3rd model is DistilBERT, a smaller and computationally efficient version of BERT designed with a smaller memory footprint compared to the original BERT model.
 * While using a full BERT model might achieve higher accuracy, it's worth noting that DistilBERT with binary outputs still performs better than the other BERT models in this specific context
 
-# Fine-tuning a base 
+# Fine-tuning a distilbert-base model (3 classes) with our dataset.
+Reasoning for choosing a distilbert-base model with 3 clases
+*
  
 
 
