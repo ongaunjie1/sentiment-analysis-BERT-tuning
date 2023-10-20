@@ -58,7 +58,7 @@ Testing pretrained BERT models with different output classes without fine-tuning
 * The binary classification model is a DistilBERT, a smaller and computationally efficient version of BERT designed with a smaller memory footprint compared to the original BERT model.
 * While using a full BERT model might achieve higher accuracy, it's worth noting that DistilBERT with binary outputs still performs better than the other BERT models in this specific context
 
-# Fine-tuning a distilbert-base model (3 classes) with our dataset.
+# Fine-tuning a distilbert-base model (3 classes) with women's clothing dataset.
 Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
 * Multi-class classification (5 classes) was not selected because it can be challenging for sentiment analysis, as each rating represents a narrow range of sentiment. This approach would require a larger dataset to 
   effectively capture nuanced sentiment.
