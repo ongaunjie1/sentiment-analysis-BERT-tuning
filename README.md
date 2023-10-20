@@ -39,9 +39,9 @@ Answering the following questions
 ## 4. Ploting a word cloud for the product reviews
 ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/e3cf1137-e517-482f-9e42-f9f24d3e2e0e)
 
-## 5. What is the distribution of words per review? (This information allows us to figure out the max_length of the product reviews, it is crucial for the fine-tuning process)
+## 5. What is the distribution of words per review? 
 ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/d25bdd0e-96d6-493c-8b79-8084367d09c4)
-* The max_length is 115
+* The max_length is 115 (This information allows us to figure out the max_length of the product reviews, it is crucial for the fine-tuning process)
 
 # Loading pretrained BERT models from huggingface and performing inference with the model.
 Testing pretrained BERT models with different output classes without fine-tuning the model to our dataset:
