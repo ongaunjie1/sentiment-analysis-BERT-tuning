@@ -60,7 +60,9 @@ Testing pretrained BERT models with different output classes without fine-tuning
 
 # Fine-tuning a distilbert-base model (3 classes) with our dataset.
 Reasoning for choosing a distilbert-base model with 3 clases
-*
+* Using a 5-star rating system for sentiment analysis can be challenging, especially when each star rating represents a narrow range of sentiment. It can lead to a fine-grained classification task
+  that requires a larger dataset to effectively capture the nuances of sentiment.
+
  
 
 
