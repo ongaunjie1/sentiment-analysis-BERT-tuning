@@ -23,5 +23,7 @@
 
 # EDA (Exploratory Data Analysis)
 Answering the following questions
-## What 
+## How many product reviews per sentiment?
+![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/4992b6e9-9d42-4c02-acb3-18262d5b87cf)
+
 
