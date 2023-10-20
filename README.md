@@ -1,4 +1,4 @@
-# Sentiment analysis on women'clothing using transformer model (BERT)
+# Sentiment analysis on women'clothing dataset using transformer model (BERT)
 
 **Dataset informations:**
 * Clothing ID: A unique identifier for each clothing item.
