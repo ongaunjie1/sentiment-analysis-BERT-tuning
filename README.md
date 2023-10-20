@@ -66,7 +66,7 @@ Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
   high ratings. Additionally, binary classification, being overly simplistic, can lead to a loss of information by forcing ratings into just two categories."
 * Using a model with 3 classes outputs will help provide a more detailed insights into the sentiment of the text. This granularity helps to distinguish between completely positive, completely negative, and neutral 
   sentiments, providing richer information.
-* Decided to use distilbert-base model instead of a bert-base model because distilbert model are computationally less intensive. This results in faster training and inference times
+* Decided to use distilbert-base model instead of a bert-base model because distilbert model is computationally less intensive. This results in faster training and inference times
 * The fine-tuned model will be used to compare against a pretrained-bert-base model from huggingface.
 
 ## Refer to the fine_tuning notebook for all the steps of the fine-tuning process
