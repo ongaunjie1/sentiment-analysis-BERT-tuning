@@ -23,7 +23,9 @@
 
 # EDA (Exploratory Data Analysis)
 Answering the following questions
-## How many product reviews per sentiment?
+## 1. How many product reviews per rating?
 ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/4992b6e9-9d42-4c02-acb3-18262d5b87cf)
+* From the graph, it shows that the ratings are increasing in a linear trend.
+* While there is some imbalance, it doesn't seem extreme, as there is a reasonable spread of ratings across all values from 1 to 5 stars.
 
 
