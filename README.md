@@ -15,7 +15,7 @@
 **Main goals of this project:**
 * 1st: Performing data cleaning and EDA on the dataset to uncover insights from the product reviews.
 * 2nd: Utilizing huggingface's pretrained models to predict customer sentiments based on product reviews.
-* 3rd: Fine-tune a base BERT model and compare its performance with a pretrained model from huggingface.
+* 3rd: Fine-tune a base BERT model to our dataset and compare its performance with a pretrained model from huggingface.
 
 # Data cleaning
 * Removed null values
@@ -43,6 +43,20 @@ Answering the following questions
 ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/d25bdd0e-96d6-493c-8b79-8084367d09c4)
 * The max_length is 115
 
+# Loading pretrained BERT models from huggingface and performing inference with the model.
+Testing pretrained BERT models with different output classes without fine-tuning the model to our dataset:
+* 1st Model: nlptown/bert-base-multilingual-uncased-sentiment = Multi-class classication: between 1 and 5 (5 classes)
+* 2nd Model: cardiffnlp/twitter-roberta-base-sentiment-latest = Multi-class classification: Labels: 0 -> Negative; 1 -> Neutral; 2 -> Positive (3 classes)
+* 3rd Model: distilbert-base-uncased-finetuned-sst-2-english = Binary classification: 0 -> Negative; 1 -> Positive (2 classes)
+
+| Models                 | Accuracy | Precision | Recall  | F1 Score |
+|------------------------|----------|-----------|---------|----------|
+| 5 classes              | 0.566092 | 0.653298  | 0.566092| 0.592059 |
+| 3 classes              | 0.793413 | 0.771015  | 0.793413| 0.776169 |
+| 2 classes              | 0.837224 | 0.849638  | 0.837224| 0.841782 |
+* From the table, binary classification achieved the best result with a 83 % accuracy
+  
+ 
 
 
 
