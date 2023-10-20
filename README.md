@@ -45,17 +45,20 @@ Answering the following questions
 
 # Loading pretrained BERT models from huggingface and performing inference with the model.
 Testing pretrained BERT models with different output classes without fine-tuning the model to our dataset:
-* 1st Model: nlptown/bert-base-multilingual-uncased-sentiment = Multi-class classication: between 1 and 5 (5 classes)
-* 2nd Model: cardiffnlp/twitter-roberta-base-sentiment-latest = Multi-class classification: Labels: 0 -> Negative; 1 -> Neutral; 2 -> Positive (3 classes)
-* 3rd Model: distilbert-base-uncased-finetuned-sst-2-english = Binary classification: 0 -> Negative; 1 -> Positive (2 classes)
+* 1st Model: **nlptown/bert-base-multilingual-uncased-sentiment** = Multi-class classication: between 1 and 5 (5 classes)
+* 2nd Model: **cardiffnlp/twitter-roberta-base-sentiment-latest** = Multi-class classification: Labels: 0 -> Negative; 1 -> Neutral; 2 -> Positive (3 classes)
+* 3rd Model: **distilbert-base-uncased-finetuned-sst-2-english** = Binary classification: 0 -> Negative; 1 -> Positive (2 classes)
 
 | Models                 | Accuracy | Precision | Recall  | F1 Score |
 |------------------------|----------|-----------|---------|----------|
 | 5 classes              | 0.566092 | 0.653298  | 0.566092| 0.592059 |
 | 3 classes              | 0.793413 | 0.771015  | 0.793413| 0.776169 |
 | 2 classes              | 0.837224 | 0.849638  | 0.837224| 0.841782 |
-* From the table, binary classification achieved the best result with a 83 % accuracy
-  
+* From the table, binary classification achieved the best results with a **83%** accuracy
+* The 3rd model is DistilBERT, a smaller and computationally efficient version of BERT designed with a smaller memory footprint compared to the original BERT model.
+* While using a full BERT model might achieve higher accuracy, it's worth noting that DistilBERT with binary outputs still performs better than the other BERT models in this specific context
+
+# Fine-tuning a base 
  
 
 
