@@ -13,12 +13,15 @@
 * Class Name: The specific class or category to which the product belongs.
 
 **Main goal of this project:**
-* 1st: Performing data preprocessing and EDA on the dataset to uncover insights from the product reviews.
+* 1st: Performing data cleaning and EDA on the dataset to uncover insights from the product reviews.
 * 2nd: Utilizing huggingface's pretrained models to predict customer sentiments based on product reviews.
 * 3rd: Fine-tune a base BERT model and compare its performance with a pretrained model from huggingface.
 
-# Data preprocessing 
+# Data cleaning
 * Removed null values
 * Removed duplicated rows
-* 
+
+# EDA (Exploratory Data Analysis)
+Answering the following questions
+## What 
 
