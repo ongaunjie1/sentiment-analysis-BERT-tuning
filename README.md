@@ -1,7 +1,24 @@
-# Sentiment analysis on women'clothing using BERT
+# Sentiment analysis on women'clothing using transformer model (BERT)
 
-Main goal of this project:
-* 1st: Performing EDA on the dataset to uncover insights from the product reviews
-* 2nd: Utilizing huggingface's pretrained models to predict customer sentiments based on product reviews
-  *sdasda
-* 3rd: Pick a base model
+**Dataset informations:**
+* Clothing ID: A unique identifier for each clothing item.
+* Age: The age of the reviewer.
+* Title: The title of the review provided by the reviewer.
+* Review Text: The detailed text of the review where the reviewer expresses their thoughts and opinions about the product.
+* Rating: The rating given by the reviewer, typically on a scale from 1 to 5 stars.
+* Recommended IND: An indicator (usually binary) that suggests whether the reviewer recommended the product (e.g., 1 for recommended, 0 for not recommended).
+* Positive Feedback Count: The count of positive feedback or "likes" received on the review by other users.
+* Division Name: The name of the product division or category.
+* Department Name: The name of the department within the division to which the product belongs.
+* Class Name: The specific class or category to which the product belongs.
+
+**Main goal of this project:**
+* 1st: Performing data preprocessing and EDA on the dataset to uncover insights from the product reviews.
+* 2nd: Utilizing huggingface's pretrained models to predict customer sentiments based on product reviews.
+* 3rd: Fine-tune a base BERT model and compare its performance with a pretrained model from huggingface.
+
+# Data preprocessing 
+* Removed null values
+* Removed duplicated rows
+* 
+
