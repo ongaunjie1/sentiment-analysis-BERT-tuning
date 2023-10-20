@@ -1,0 +1,6 @@
+pandas
+seaborn
+sklearn
+transformers
+torch
+numpy
