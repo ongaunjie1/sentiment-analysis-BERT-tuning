@@ -51,17 +51,60 @@ Testing pretrained BERT models with different output classes without fine-tuning
 
 | Models                 | Accuracy | Precision | Recall  | F1 Score |
 |------------------------|----------|-----------|---------|----------|
-| 5 classes (1st model)  | 0.566092 | 0.653298  | 0.566092| 0.592059 |
-| 3 classes (2nd model)  | 0.793413 | 0.771015  | 0.793413| 0.776169 |
-| 2 classes (3rd model)  | 0.837224 | 0.849638  | 0.837224| 0.841782 |
+| 5 classes (1st model)  |   0.57   |   0.65    |  0.57   |   0.59   |
+| 3 classes (2nd model)  |   0.79   |   0.77    |  0.79   |   0.78   |
+| 2 classes (3rd model)  |   0.84   |   0.85    |  0.84   |   0.84   |
 * From the table, binary classification achieved the best results with a **83%** accuracy
-* The 3rd model is DistilBERT, a smaller and computationally efficient version of BERT designed with a smaller memory footprint compared to the original BERT model.
+* The binary classification model is a DistilBERT, a smaller and computationally efficient version of BERT designed with a smaller memory footprint compared to the original BERT model.
 * While using a full BERT model might achieve higher accuracy, it's worth noting that DistilBERT with binary outputs still performs better than the other BERT models in this specific context
 
 # Fine-tuning a distilbert-base model (3 classes) with our dataset.
-Reasoning for choosing a distilbert-base model with 3 clases
-* Using a 5-star rating system for sentiment analysis can be challenging, especially when each star rating represents a narrow range of sentiment. It can lead to a fine-grained classification task
-  that requires a larger dataset to effectively capture the nuances of sentiment.
+Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
+* Multi-class classification (5 classes) was not selected because it can be challenging for sentiment analysis, as each rating represents a narrow range of sentiment. This approach would require a larger dataset to 
+  effectively capture nuanced sentiment.
+* Binary classification (2 classes) was not selected because the distribution of the ratings of this dataset is not too imbalanced. Binary classification is more suitable when dealing with a high prevalence of low and 
+  high ratings. Additionally, binary classification, being overly simplistic, can lead to a loss of information by forcing ratings into just two categories."
+* Using a model with 3 classes outputs will help provide a more detailed insights into the sentiment of the text. This granularity helps to distinguish between completely positive, completely negative, and neutral 
+  sentiments, providing richer information.
+* Decided to use distilbert-base model instead of a bert-base model because distilbert model are computationally less intensive. This results in faster training and inference times
+* The fine-tuned model will be used to compare against a pretrained-bert-base model from huggingface.
+
+## Refer to the fine_tuning notebook for all the steps of the fine-tuning process
+* The model was fine-tuned in a google colab environment (utilizing a GPU)
+* The fine tune model was trained on the women's clothing dataset.
+* The models will be evaluated using a test dataset that has been split from the train_test_split process in google colab as the original dataset cannot be used to evaluate as the fine-tuned model was trained on it. 
+* training_args = TrainingArguments(
+    output_dir='./results',
+    num_train_epochs=10,
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=64,
+    warmup_steps=500,
+    learning_rate=5e-5,
+    weight_decay=0.01,
+    logging_dir='./logs',
+    logging_steps=10,
+)
+
+## Results of the model and comparison between a fine-tuned distilbert model (3 clases) and a pretrained bert model (3 classes)
+| Model                            | Accuracy | Precision | Recall  | F1 Score |
+|----------------------------------|----------|-----------|---------|----------|
+| Pretrained model                 |   0.79   |    0.77   |   0.79  |   0.77   |
+| Fine-tuned model                 |   0.85   |    0.86   |   0.85  |   0.85   |
+
+* Pretrained model used: cardiffnlp/twitter-roberta-base-sentiment-latest
+* Fine-tuned base model: distilbert-base-uncased
+* From the table, fine-tune model performs better than the pretrained model across the board. It achieved an accuracy of **85%**
+* Confusion matrix for the fine-tuned model:
+  ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/5421963d-2533-4a00-a041-3005c1818ac5)
+
+## Further improvements:
+* Continue Fine-Tuning with Different Parameters:
+* Use more data 
+* Fine-tune the model using different output classes
+  
+
+
+
 
  
 
