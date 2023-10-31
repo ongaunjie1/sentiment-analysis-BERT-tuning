@@ -104,7 +104,7 @@ Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
 
 ## Link to the fine-tuned model: https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
 **Try out the model by inputting a sentence!**
-* Example input: "This dress is kinda okay" 
+* Example input: "this dress is kinda okay" 
 ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/e8fb9679-5991-450d-adcf-cb5b20d100fa)
 
 **The output labels are as follows:**
