@@ -93,19 +93,24 @@ Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
 
 * Pretrained model used: cardiffnlp/twitter-roberta-base-sentiment-latest
 * Fine-tuned base model: distilbert-base-uncased
-* From the table, fine-tune model performs better than the pretrained model across the board. It achieved an accuracy of **85%**
+* From the table, fine-tune model performs slightly better than the pretrained model across the board. It achieved an accuracy of **85%**
 * Confusion matrix for the fine-tuned model:
   ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/5421963d-2533-4a00-a041-3005c1818ac5)
 
 ## Further improvements:
-* Continue Fine-Tuning with Different Parameters:
-* Use more data 
-* Fine-tune the model using different output classes
+* Continue Fine-Tuning the model with Different Parameters
+* Obtain more data and retrain the model
+* Train model with different output classes
 
 ## Link to the fine-tuned model: https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
 **Try out the model by inputting a sentence!**
-* Example: The output labels are as follows ---> 0 - Negative, 1 - Neutral, 2 - Positive
+* Example input: "This dress is kinda okay" 
 ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/e8fb9679-5991-450d-adcf-cb5b20d100fa)
+
+**The output labels are as follows:**
+* 0 - Negative
+* 1 - Neutral
+* 2 - Positive
 
 
 
