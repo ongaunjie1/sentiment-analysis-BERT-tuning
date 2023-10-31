@@ -102,10 +102,9 @@ Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
 * Use more data 
 * Fine-tune the model using different output classes
 
-## Link to the fine-tuned model:
-* https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
-* Try out the model by inputting a sentence!
-* Example:
+## Link to the fine-tuned model: https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
+**Try out the model by inputting a sentence!**
+Example:
 * ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/e8fb9679-5991-450d-adcf-cb5b20d100fa)
 
   
