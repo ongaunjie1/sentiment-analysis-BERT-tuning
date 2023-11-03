@@ -102,15 +102,21 @@ Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
 * Obtain more data and retrain the model
 * Train model with different output classes
 
-## Link to the fine-tuned model: https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
-**Try out the model by inputting a sentence!**
-* Example input: "this dress is kinda okay" 
-![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/e8fb9679-5991-450d-adcf-cb5b20d100fa)
+# Link to the fine-tuned model: https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
 
-**The output labels are as follows:**
+## 1) Try out the model by inputting a sentence
+
+![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/1c809e53-5dac-4e46-b92c-cf2c8368d2d9)
+* Example input: "this dress is kinda okay"
+### The output labels are as follows:
 * 0 - Negative
 * 1 - Neutral
 * 2 - Positive
+
+
+## 2) Perform inference on the model, more details can be found in the huggginface's repository**
+![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/eca34d97-6c9f-4cc3-8e71-b58db9716ffe)
+
 
 
 
