@@ -103,7 +103,7 @@ Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
 ## Further improvements:
 * Continue Fine-Tuning the model with Different Parameters
 * Obtain more data and retrain the model
-* Train model with different output classes
+* Fine-tune the model with different output classes
 
 # Link to the fine-tuned model: https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
 
