@@ -1,4 +1,4 @@
-# Sentiment analysis on women'clothing dataset using transformer model (BERT)
+# Sentiment analysis on women'clothing dataset using a transformer model (BERT)
 
 **Dataset informations:**
 * Clothing ID: A unique identifier for each clothing item.
@@ -63,17 +63,19 @@ Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
 * Multi-class classification (5 classes) was not selected because it can be challenging for sentiment analysis, as each rating represents a narrow range of sentiment. This approach would require a larger dataset to 
   effectively capture nuanced sentiment.
 * Binary classification (2 classes) was not selected because the distribution of the ratings of this dataset is not too imbalanced. Binary classification is more suitable when dealing with a high prevalence of low and 
-  high ratings. Additionally, binary classification, being overly simplistic, can lead to a loss of information by forcing ratings into just two categories."
-* Using a model with 3 classes outputs will help provide a more detailed insights into the sentiment of the text. This granularity helps to distinguish between completely positive, completely negative, and neutral 
+  high ratings. Additionally, binary classification, being overly simplistic, can lead to a loss of information by forcing ratings into just two categories.
+* Using a model with 3 classes outputs can help provide a more detailed insights into the sentiment of the text. This granularity helps to distinguish between completely positive, completely negative, and neutral 
   sentiments, providing richer information.
-* Decided to use distilbert-base model instead of a bert-base model because distilbert model is computationally less intensive. This results in faster training and inference times
-* The fine-tuned model will be used to compare against a pretrained-bert-base model from huggingface.
+* Decided to use a distilbert-base model instead of a BERT-base model because the distilbert model is computationally less intensive, resulting in faster training and inference times
+* The fine-tuned model will be used to compare against a pretrained-bert-base model.
 
 ## Refer to the fine_tuning notebook for all the steps of the fine-tuning process
 * The model was fine-tuned in a google colab environment (utilizing a GPU)
 * The fine tune model was trained on the women's clothing dataset.
-* The models will be evaluated using a test dataset that has been split from the train_test_split process in google colab as the original dataset cannot be used to evaluate as the fine-tuned model was trained on it. 
-* training_args = TrainingArguments(
+* The models will be evaluated using a test dataset that has been split from the train_test_split process in google colab as the original dataset cannot be used to evaluate as the fine-tuned model was trained on it.
+### Training arguments used for fine-tuning:
+```
+   training_args = TrainingArguments(
     output_dir='./results',
     num_train_epochs=10,
     per_device_train_batch_size=16,
@@ -83,12 +85,13 @@ Reasoning for fine-tuning a distilbert-base model with an output of 3 classes
     weight_decay=0.01,
     logging_dir='./logs',
     logging_steps=10,
-)
+  )
+```
 
-## Results of the model and comparison between a fine-tuned distilbert model (3 clases) and a pretrained bert model (3 classes)
+## Results of the fine-tuned distilbert model (3 classes) and the pretrained-base model (3 classes)
 | Model                            | Accuracy | Precision | Recall  | F1 Score |
 |----------------------------------|----------|-----------|---------|----------|
-| Pretrained model                 |   0.79   |    0.77   |   0.79  |   0.77   |
+| Pretrained-base model            |   0.79   |    0.77   |   0.79  |   0.77   |
 | Fine-tuned model                 |   0.85   |    0.86   |   0.85  |   0.85   |
 
 * Pretrained model used: cardiffnlp/twitter-roberta-base-sentiment-latest
