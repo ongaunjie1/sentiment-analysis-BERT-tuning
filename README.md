@@ -13,16 +13,10 @@
 * Class Name: The specific class or category to which the product belongs.
 
 # Project Goals
-## 1. Data Cleaning and EDA
-Perform data cleaning and exploratory data analysis (EDA) on the dataset to uncover insights from product reviews.
-## 2. Utilizing Hugging Face's Pretrained Models
-Utilize Hugging Face's pretrained models to predict customer sentiments based on product reviews. This involves leveraging state-of-the-art transformer-based models like BERT for sentiment analysis.
-## 3. Testing Different BERT Models (Without Fine-Tuning)
-Test different types of BERT models from Hugging Face with varying output classes. This step involves experimenting with pretrained models to evaluate their performance without fine-tuning.
-## 4. Decision on Number of Output Classes for Final Model
-Make a decision on the number of output classes for the final sentiment analysis model. 
-## 5. Fine-tune the BERT model to the dataset
-Fine-tune the dataset with the decided number of output classes
+1. Perform data cleaning and exploratory data analysis (EDA) on the dataset to uncover insights from product reviews.
+2. Test different types of BERT models from Hugging Face with varying output classes. This step involves experimenting with pretrained models to evaluate their performance on the dataset without fine-tuning.
+3. Make a decision on the number of output classes (2 classes, 3 classes or 5 classes)  and the type of BERT model to use (BERT, roBERTa or distilBERT) for the final sentiment analysis model 
+4. Fine-tune the dataset after deciding on which type of BERT model to use and how many output classes for the final model.
 
 # Data cleaning
 * Removed null values
@@ -69,27 +63,32 @@ Testing different types of pretrained BERT models with different output classes 
 * roBERTa model: Pretrained on 3 output classes (0 : Negative, 1 : Neutral, 2 : Positive) - [Link to the model](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest)
 * distilBERT model: Pretrained on 2 output classes (0 : Negative, 1 : Positive) - [Link to the model](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)
 
-# Results of the model
+# Results of the pretrained models
 | Models                 | Accuracy | Precision | Recall  | F1 Score |
 |------------------------|----------|-----------|---------|----------|
-| BERT model (5 output classes)  |   0.57   |   0.65    |  0.57   |   0.59   |
-| roBERTa model (3 output classes)  |   0.79   |   0.77    |  0.79   |   0.78   |
-| distilBERT (2 output classes)  |   0.84   |   0.85    |  0.84   |   0.84   |
-* Even without fine-tuning, the distilBERT already achieved a relatively good accuracy of 83% with 2 output classes
-* While the roBERTa model also achieved a pretty high accuracy wth an output of 3 classes
-* As expected, the BERT model with 5 output classes performed the worst due to its narrow sentiment range.
+| pretrained BERT model (5 output classes)  |   0.566   |   0.653    |  0.566   |   0.592   |
+| pretrained roBERTa model (3 output classes)  |   0.793   |   0.771    |  0.793   |   0.776   |
+| pretrained distilBERT (2 output classes)  |   0.837   |   0.850    |  0.837   |   0.842   |
+* As expected, the lower output classes will have an easier learning pattern. Hence higher accuracy.
+* The BERT model with 5 output classes performed the worst due to its narrow sentiment range.
+* Even without fine-tuning, the distilBERT already achieved a pretty good accuracy of 84% with 2 output classes
+* In comparison, the roBERTa model also achieved a relatively high accuracy of 79% eventhough it is predicting 3 classes, only a 0.5% difference between roBERTA and distilBERT. This is also expected, because roBERTa has the largest number of parameters among the three.
 
-# Fine-tuning distilbert-base with an 3 output classes
-Reasons for choosing to fine-tune a distilBERT model with an output of 3 classes:
+# Decision on which type of BERT model to use
+* For this project, the choice will be distilBERT over BERT and roBERTa because distilBERT has a faster performance in both training and inference times. DistilBERT's smaller size and streamlined architecture contribute to quicker computations, ensuring computational efficiency throughout the model's lifecycle.
+* [Link to the base-distilBERT model](https://huggingface.co/distilbert-base-uncased)
+
+# Decision on how many output classes to use
+Reasons for choosing 3 output classes:
 * Multi-class Classification (5 classes): Avoided due to the dataset's narrow sentiment ranges, requiring a larger dataset for effective capture.
 * Binary Classification (2 classes): Not chosen as the dataset's rating distribution is relatively balanced; binary classification risks oversimplifying and losing information.
-* 3 Classes for Detailed Insights: Chose 3 classes to distinguish between positive, negative, and neutral sentiments, providing richer insights.
-* Choice of DistilBERT over BERT and roBERTa: Selected distilbert-base for faster training and inference times, maintaining computational efficiency.
+* Chose 3 classes to distinguish between positive, negative, and neutral sentiments, providing richer insights.
 
 ## Refer to the fine_tuning notebook for all the steps of the fine-tuning process
 * The model was fine-tuned in a google colab environment (utilizing a GPU)
-* The fine tune model was trained on the women's clothing dataset.
-* The models will be evaluated using a test dataset that has been split from the train_test_split process in google colab as the original dataset cannot be used to evaluate as the fine-tuned model was trained on it.
+* The fine-tuned model was trained on the clothing dataset
+* The fine-tuned model was evaluated using a test dataset that has been split from the train_test_split process
+* The fine-tuned model was compared with the pretrained roBERTa model with 3 output classes.
 ### Training arguments used for fine-tuning:
 ```
    training_args = TrainingArguments(
@@ -105,27 +104,30 @@ Reasons for choosing to fine-tune a distilBERT model with an output of 3 classes
   )
 ```
 
-## Results of the fine-tuned distilbert model (3 classes) and the pretrained-base model (3 classes)
+## Results of the fine-tuned distilBERT model and the pretrained roBERTa model 
 | Model                            | Accuracy | Precision | Recall  | F1 Score |
 |----------------------------------|----------|-----------|---------|----------|
-| Pretrained-base model            |   0.79   |    0.77   |   0.79  |   0.77   |
-| Fine-tuned model                 |   0.85   |    0.86   |   0.85  |   0.85   |
+| pretrained roBERTa  (3 classes)   |   0.789   |    0.772   |   0.789  |   0.773   |
+| pretrained distilBERT (2 classes)  |   0.837   |   0.850    |  0.837   |   0.842   |
+| Fine-tuned distilBERT model   (3 classes)    |   0.849   |    0.860   |   0.849  |   0.853   |
 
-* Pretrained model used: cardiffnlp/twitter-roberta-base-sentiment-latest
-* Fine-tuned base model: distilbert-base-uncased
-* From the table, fine-tune model performs slightly better than the pretrained model across the board. It achieved an accuracy of **85%**
-* Confusion matrix for the fine-tuned model:
-  ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/5421963d-2533-4a00-a041-3005c1818ac5)
+* Pretrained model used: [cardiffnlp/twitter-roberta-base-sentiment-latest](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest)
+* Fine-tuned base model: [distilbert-base-uncased](https://huggingface.co/distilbert-base-uncased)
+* From the table, the fine-tuned distilBERT model showed a slight performance improvement compared to the pretrained distilBERT with 2 output classes. This improvement is noteworthy, considering the expectation that having 3 output classes could potentially lead to a lower accuracy. The fine-tuning process allows the model to adapt more closely to the nuances of the specific sentiment analysis task, resulting in enhanced performance.
+* Also, the pretrained roBERTa model demonstrates competitive performance, closely trailing the fine-tuned distilBERT, even without undergoing the fine-tuning process. This result aligns with the expectation that roBERTa, with its larger number of parameters and advanced architecture, has the potential for strong out-of-the-box performance. 
+* Thus, fine-tuning the roBERTa model could present an opportunity to surpass the performance of the fine-tuned distilBERT.
 
-## Further improvements:
-* Continue Fine-Tuning the model with Different Parameters
-* Obtain more data and retrain the model
-* Fine-tune the model with different output classes
+# Confusion matrix for the fine-tuned model:
+![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/5421963d-2533-4a00-a041-3005c1818ac5)
 
-# Link to the fine-tuned model: https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
+## Future improvements:
+* Continue Fine-Tuning the distilBERT model with different parameters to achieve a higher accuracy
+* Fine-tune a roBERTa base model to the dataset and compare it with distilBERT
+
+# If you are interested in the fine-tuned distilBERT model:
+## Link to the fine-tuned model: https://huggingface.co/ongaunjie/distilbert-cloths-sentiment
 
 ## 1) Try out the model by inputting a sentence
-
 ![image](https://github.com/ongaunjie1/Sentiment-analysis-BERT-tuning/assets/118142884/1c809e53-5dac-4e46-b92c-cf2c8368d2d9)
 * Example input: "this dress is kinda okay"
 ### The output labels are as follows:
