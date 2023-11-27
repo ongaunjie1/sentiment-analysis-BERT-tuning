@@ -45,7 +45,7 @@ Answering the following questions
 
 # Loading pretrained BERT models from huggingface and performing inference with the model.
 Testing pretrained BERT models with different output classes without fine-tuning the model to our dataset:
-* 1st Model: **nlptown/bert-base-multilingual-uncased-sentiment** = Multi-class classication: between 1 and 5 (5 classes)
+* 1st Model: **nlptown/bert-base-multilingual-uncased-sentiment** (Output classes 5) [Link to the model]([https://github.com](https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment))
 * 2nd Model: **cardiffnlp/twitter-roberta-base-sentiment-latest** = Multi-class classification: Labels: 0 -> Negative; 1 -> Neutral; 2 -> Positive (3 classes)
 * 3rd Model: **distilbert-base-uncased-finetuned-sst-2-english** = Binary classification: 0 -> Negative; 1 -> Positive (2 classes)
 
