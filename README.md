@@ -78,7 +78,7 @@ Testing different types of pretrained BERT models with different output classes 
 Reasons for choosing 3 output classes:
 * Multi-class Classification (5 classes): Avoided due to the dataset's narrow sentiment ranges, requiring a larger dataset for effective capture.
 * Binary Classification (2 classes): Not chosen as the dataset's rating distribution is relatively balanced; binary classification risks oversimplifying and losing information.
-* Chose 3 classes to distinguish between positive, negative, and neutral sentiments, providing richer insights.
+* Chose 3 output classes to distinguish between positive, negative, and neutral sentiments, providing richer insights.
 
 # Decision on which type of BERT model to use
 * For this project, the choice will be distilBERT over BERT and roBERTa because distilBERT has a faster performance in both training and inference times. DistilBERT's smaller size and streamlined architecture contribute to quicker computations, ensuring computational efficiency throughout the model's lifecycle.
