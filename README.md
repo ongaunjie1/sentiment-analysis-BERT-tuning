@@ -104,7 +104,7 @@ Reasons for choosing 3 output classes:
   )
 ```
 
-## Results of the fine-tuned distilBERT model and the pretrained roBERTa model 
+## Result comparison between fine-tuned distilBERT model and pretrained roBERTa model 
 | Model                            | Accuracy | Precision | Recall  | F1 Score |
 |----------------------------------|----------|-----------|---------|----------|
 | pretrained roBERTa  (3 classes)   |   0.789   |    0.772   |   0.789  |   0.773   |
