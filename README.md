@@ -16,7 +16,7 @@
 1. Perform data cleaning and exploratory data analysis (EDA) on the dataset to uncover insights from product reviews.
 2. Test different types of BERT models from Hugging Face with varying output classes. This step involves experimenting with pretrained models to evaluate their performance on the dataset without fine-tuning.
 3. Make a decision on the number of output classes (2 classes, 3 classes or 5 classes)  and the type of BERT model to use (BERT, roBERTa or distilBERT) for the final sentiment analysis model 
-4. Fine-tune the dataset after deciding on which type of BERT model to use and how many output classes for the final model.
+4. Fine-tune the dataset after deciding on how many output classes and which type of BERT model to use for the final model.
 
 # Data cleaning
 * Removed null values
@@ -74,15 +74,15 @@ Testing different types of pretrained BERT models with different output classes 
 * Even without fine-tuning, the distilBERT already achieved a pretty good accuracy of 84% with 2 output classes
 * In comparison, the roBERTa model also achieved a relatively high accuracy of 79% eventhough it is predicting 3 classes, only a 0.5% difference between roBERTA and distilBERT. This is also expected, because roBERTa has the largest number of parameters among the three.
 
-# Decision on which type of BERT model to use
-* For this project, the choice will be distilBERT over BERT and roBERTa because distilBERT has a faster performance in both training and inference times. DistilBERT's smaller size and streamlined architecture contribute to quicker computations, ensuring computational efficiency throughout the model's lifecycle.
-* [Link to the base-distilBERT model](https://huggingface.co/distilbert-base-uncased)
-
 # Decision on how many output classes to use
 Reasons for choosing 3 output classes:
 * Multi-class Classification (5 classes): Avoided due to the dataset's narrow sentiment ranges, requiring a larger dataset for effective capture.
 * Binary Classification (2 classes): Not chosen as the dataset's rating distribution is relatively balanced; binary classification risks oversimplifying and losing information.
 * Chose 3 classes to distinguish between positive, negative, and neutral sentiments, providing richer insights.
+
+# Decision on which type of BERT model to use
+* For this project, the choice will be distilBERT over BERT and roBERTa because distilBERT has a faster performance in both training and inference times. DistilBERT's smaller size and streamlined architecture contribute to quicker computations, ensuring computational efficiency throughout the model's lifecycle.
+* [Link to the base-distilBERT model](https://huggingface.co/distilbert-base-uncased)
 
 ## Refer to the fine_tuning notebook for all the steps of the fine-tuning process
 * The model was fine-tuned in a google colab environment (utilizing a GPU)
